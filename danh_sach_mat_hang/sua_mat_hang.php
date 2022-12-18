@@ -40,7 +40,7 @@ if($ketquatruyvan->num_rows>0){
 //Gán giá trị cho các biến PHP sẽ sử dụng để hiển thị trên form 
 ?>
 <h1>Sửa mặt hàng</h1>
-    <form action="thuc_hien_sua_loai_hang.php" method="POST">
+    <form action="thuc_hien_sua_mat_hang.php" method="POST">
         <label for="">Tên mặt hàng</label>
         <input type="text" name="ten_mat_hang" value="<?=$tenMatHang?>"> 
         <br>
@@ -50,32 +50,32 @@ if($ketquatruyvan->num_rows>0){
         <label for="">Giá bán</label>
         <input type="number" name="gia_ban" value="<?=$giaBan?>" id="">
         <label for="">Hình ảnh</label>
-        <input type="file" value="">
+        <input type="file" value="../assets/img/<?php echo $hinhAnh?>" name="hinh_anh">
         <label for="">Loại hàng</label>
-        <?php $sqlloaihang = "select ten_loai_hang FROM mis_loai_hang";
-        $ketquatruyvan = $conn -> query($sql)?>
-        <select value = "selected" name="ten_loai_hang" id="">
+
+        <select class="form-control" name="loai_hang_id" id="">
+            <option value="0">Chọn loại hàng</option>
         <?php
+        
         $sql = "select * from mis_loai_hang";
-        $ketquatruyvan = $conn -> query($sql);
-            if($result->num_rows>0){
-            $i=1;
-            while($tenLoaiHang = $result->fetch_assoc()){
-                if($loaiHangID == $loai_hang_id){
+        $result = $conn -> query($sql);
+        if($result->num_rows>0){
+                while($loaiHang = $result->fetch_assoc()){
+                    if($loaiHang['Id']==$loaiHangID){
         ?>
-            <option selected value=""> <?php echo $tenLoaiHang['ten_loai_hang'];?></option>
-        <?php    $i++;
-                }else?>
-                    <option selected value=""> <?php echo $tenLoaiHang['ten_loai_hang'];?></option>
+
+            <option selected="selected" value="<?php echo $loaiHang['Id']?>"> <?php echo $loaiHang['ten_loai_hang'];?></option>
+             <?php
+                }else{
+        ?>
+                <option value="<?php echo $loaiHang['Id']?>"> <?php echo $loaiHang['ten_loai_hang'];?></option>
                 <?php
                 
             }
-
-            
         }
-            
+    }
         ?>
-
+        </select>
         <input type="hidden" name="id" value="<?php echo $id?>" >
         <input type="submit" value="Lưu">
     </form>

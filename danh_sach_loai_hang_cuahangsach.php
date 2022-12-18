@@ -44,13 +44,7 @@
             <tr>
             <td><?php echo htmlspecialchars($row['sach_id'])?></td>
             <td><?php echo $tenSach?></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+         
         </tr>
         <?php endwhile; ?>
     </table>

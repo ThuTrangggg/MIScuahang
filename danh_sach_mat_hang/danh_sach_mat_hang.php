@@ -47,16 +47,17 @@
         
             if($ketquatruyvan->num_rows>0){
                 $i =1;
-                while($loaiHang = $ketquatruyvan -> fetch_assoc()){
+                while($matHang = $ketquatruyvan -> fetch_assoc()){
             ?>
                     <tr >
                         <td><?php echo $i;?></td>
-                        <td><?php echo $loaiHang['ten_loai_hang']?></td>
-                        <td><?php echo $loaiHang['ten_mat_hang']; ?></td>
-                        <td><img width="200px" src="../assets/img/<?php echo $loaiHang['hinh_anh']; ?>" alt=""></td>
-                        <td><?php echo $loaiHang['gia_ban']; ?></td>
-                        <td><a class="btn btn-info" target="_blank" href="sua_mat_hang.php?id=<?php echo $loaiHang['id'];?>">Sửa</a>
-                        <a class="btn btn-danger" href="xoa_loai_hang.php?id=<?php echo $loaiHang['id'];?>">Xóa</a></td>
+                        <td><?php echo $matHang['ten_loai_hang']?></td>
+                        <td><?php echo $matHang['ten_mat_hang']; ?></td>
+                        <td><img width="200px" src="../assets/img/<?php echo $matHang['hinh_anh']; ?>" alt=""></td>
+                        <td><?php echo $matHang['gia_ban']; ?></td>
+                        <td>
+                        <a class="btn btn-info" target="_blank" href="sua_mat_hang.php?id=<?php echo $matHang['id'];?>">Sửa</a>
+                        <a class="btn btn-danger" href="xoa_mat_hang.php?id=<?php echo $matHang['id'];?>">Xóa</a></td>
                         <br>
                     </tr>
                     
