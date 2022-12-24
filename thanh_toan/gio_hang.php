@@ -22,23 +22,6 @@
 
         </tr>
         <?php
-        // for($i=0;$i < sizeof($_SESSION["gio_hang"]["mat_hang"]);$i++){
-        //     $thanhTien = $_SESSION["gio_hang"]["mat_hang"]['gia_ban']*$_SESSION["gio_hang"]["mat_hang"]['so_luong'];
-        //     $tongTien += $thanhTien;
-        //     echo '
-        //     <tr>
-        //         <td>'.($i+1).'</td>
-        //         <td>'.$_SESSION['gio_hang']['mat_hang']['ten_mat_hang'].'</td>
-        //         <td>'.$_SESSION['gio_hang']['mat_hang']['gia_ban'].'</td>
-        //         <td>'.$_SESSION['gio_hang']['mat_hang']['so_luong'].'</td>
-        //         <td>'.$thanhTien.'</td>
-        //     </tr>';
-        // }
-        //     echo '
-        //     <tr><td colspan="5">
-        //         '.$tongTien.'
-        //     </td></tr>
-            // var_dump($_SESSION["gio_hang"]["mat_hang"]);
             $_SESSION["gio_hang"]["tong_so"]=0;
         foreach($_SESSION["gio_hang"]["mat_hang"] as $gioHang){
             $thanhTien = $gioHang["gia_ban"] *$gioHang["so_luong"];
